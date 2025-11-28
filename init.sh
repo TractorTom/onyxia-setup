@@ -8,7 +8,7 @@ chown -R onyxia:users "${init_dir}"
 cd ${init_dir}
 echo "v1.14.1-gh-tractortom"
 
-curl -fsSL -O "https://gitlab.com/TractorTom/onyxia-setup/-/raw/main/library/setup-git-TractorTom.sh?ref_type=heads"
+curl -fsSL -O "https://raw.githubusercontent.com/TractorTom/onyxia-setup/refs/heads/main/library/setup-git-TractorTom.sh"
 curl -fsSL -O "https://raw.githubusercontent.com/TanguyBarthelemy/rjdverse-on-onyxia/main/library/setup-rstudio-prefs.sh"
 curl -fsSL -O "https://raw.githubusercontent.com/TanguyBarthelemy/rjdverse-on-onyxia/main/library/setup-locales.sh"
 curl -fsSL -O "https://raw.githubusercontent.com/TanguyBarthelemy/rjdverse-on-onyxia/main/library/setup-rprofile.sh"
