@@ -1,18 +1,27 @@
-#!/usr/bin/env bash
-set -euo pipefail
+#!/bin/sh
+
+# This init script is a variation of open-rproj, which clones
+# a Git repository that contains a RStudio project (*.Rproj)
+# and opens it in RStudio at startup.
+# In addition, it takes as parameter the name of the git account and the git repository.
+
+# Expected parameters :
+#  - Name of the github account
+#  - Name of the github repository
+
+# Fetch the parameter
+GIT_ACCOUNT=$1
+GIT_REPO=$2
 
 init_dir="/home/onyxia/.cache/init"
 mkdir -p "${init_dir}"
 chown -R onyxia:users "${init_dir}"
 
-
-GIT_REPO=Advent-of-Code
-
 echo 'PROJ_DIR="/home/onyxia/work/${GIT_REPO}"' >> "/home/onyxia/.Renviron"
 chown onyxia:users "/home/onyxia/.Renviron"
 
 cd ${init_dir}
-echo "v1.14.7"
+echo "v1.14.2"
 
 curl -fsSL -O "https://raw.githubusercontent.com/TractorTom/onyxia-setup/refs/heads/main/library/setup-git-TractorTom.sh"
 curl -fsSL -O "https://raw.githubusercontent.com/TanguyBarthelemy/onyxia-setup/main/library/setup-rstudio-prefs.sh"
@@ -29,19 +38,13 @@ chmod +x "setup-air.sh"
 chmod +x "setup-firacode.sh"
 
 "./setup-git-TractorTom.sh"
-echo "setup git ok"
 "./setup-rstudio-prefs.sh"
-echo "setup prefs ok"
 "./setup-locales.sh"
-echo "setup locales ok"
 "./setup-rprofile.sh"
-echo "setup rprofile ok"
 "./setup-air.sh"
-echo "setup air ok"
 "./setup-firacode.sh"
-echo "setup fira ok"
 
 cd "/home/onyxia/work"
-git clone https://TractorTom:${GITHUB_TRACTORTOM}@github.com/TractorTom/Advent-of-Code.git
+git clone https://TractorTom:${GITHUB_TRACTORTOM}@github.com/${GIT_ACCOUNT}/${GIT_REPO}.git
 chown -R onyxia:users ${GIT_REPO}/
-echo "setup git adv ok"
+echo "setup git proj ok"
