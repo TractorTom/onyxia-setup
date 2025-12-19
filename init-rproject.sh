@@ -47,4 +47,5 @@ chmod +x "setup-firacode.sh"
 cd "/home/onyxia/work"
 git clone https://TractorTom:${GITHUB_TRACTORTOM}@github.com/${GIT_ACCOUNT}/${GIT_REPO}.git
 chown -R onyxia:users ${GIT_REPO}/
+chown -R onyxia:users /home/onyxia/.cache/git/credential
 echo "setup git proj ok"
