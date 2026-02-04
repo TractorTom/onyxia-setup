@@ -11,6 +11,7 @@ echo "Changing ownership of init_dir..."
 init_dir="/home/onyxia/.cache/init"
 mkdir -p "${init_dir}"
 chown -R onyxia:users "${init_dir}"
+echo "PROJ_DIR=\"/home/onyxia/work/${GIT_REPO}\"" >> "/home/onyxia/.Renviron"
 chown onyxia:users "/home/onyxia/.Renviron"
 cd ${init_dir}
 echo "init_dir ready - OK"
@@ -72,5 +73,4 @@ cd "/home/onyxia/work"
 git clone https://TractorTom:${GITHUB_TRACTORTOM}@github.com/${GIT_ACCOUNT}/${GIT_REPO}.git
 chown -R onyxia:users ${GIT_REPO}/
 chown -R onyxia:users /home/onyxia/.cache/git/credential
-cd ${GIT_REPO}/
 echo "Project setup is complete - OK"
